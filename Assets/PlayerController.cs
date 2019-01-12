@@ -5,7 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    List<Player> allePlayer = new List<Player>();
+    public List<Player> allePlayer = new List<Player>();
     public GameObject timer;
     public List<GameObject> playerSigns = new List<GameObject>();
     public bool timeUp = false;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {   
         //playerSigns[0].GetComponent<TextMeshProUGUI>().text = allePlayer[0].name + "\t" + allePlayer[0].points;
-        startTimer();
+        //startTimer();
     }
 
     // Update is called once per frame
