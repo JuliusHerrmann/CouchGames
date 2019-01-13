@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
+
 
     /// <summary>
     /// Wird aufgerufen, wenn ein player eine solution abgeschickt hat.
@@ -110,6 +112,23 @@ public class GameController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// This function will send a command to the multiplayer component
+    /// </summary>
+    /// <param name="command"></param>
+    public void sendCommand(ICouchGamesCommand command)
+    {
+
+    }
+    /// <summary>
+    /// This function will be called by the Multiplayer component if a new command is recieved
+    /// </summary>
+    /// <param name="command"></param>
+    public void recvCommand(ICouchGamesCommand command)
+    {
+
+    }
+
     public void startTimer()
     {
         StartCoroutine(start());
@@ -140,4 +159,8 @@ public class GameController : MonoBehaviour
     {
         //TODO
     }
+}
+
+public interface ICouchGamesCommand : ISerializable
+{
 }
