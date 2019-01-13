@@ -6,10 +6,11 @@ using System;
 public class Solution
 {
     public List<Bewegung> moves = new List<Bewegung>();
-    public Guid playerId;
+    public Player player;
     public int secondsLeftWhenSubmitted = 0;
-    public Solution(List<Bewegung> moves, Guid playerId){
+
+    public Solution(List<Bewegung> moves, Player player){
         this.moves = moves;
-        this.playerId = playerId;
+        this.player = player;
     }
 }
