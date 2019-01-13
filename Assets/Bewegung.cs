@@ -13,6 +13,21 @@ public class Bewegung
     public Bewegung(Spielstein.MOVEDIRECTION d, FARBEN c){
         direction = d;
         farbe = c;
+        switch (farbe)
+        {
+            case FARBEN.blau:
+                figur = GameObject.Find("Blau");
+                break;
+            case FARBEN.rot:
+                figur = GameObject.Find("Rot");
+                break;
+            case FARBEN.gelb:
+                figur = GameObject.Find("Gelb");
+                break;
+            case FARBEN.gruen:
+                figur = GameObject.Find("Gruen");
+                break;
+        }
     }
 
     public GameObject getFigur(){

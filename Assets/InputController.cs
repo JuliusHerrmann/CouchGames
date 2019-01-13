@@ -33,5 +33,6 @@ public class InputController : MonoBehaviour
     {
         //Send to server: playerWantsToStart
         //Load next scene
+        SceneManager.LoadScene("Gamepad");
     }
 }

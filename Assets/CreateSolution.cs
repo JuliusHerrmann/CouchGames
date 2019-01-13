@@ -45,16 +45,16 @@ public class CreateSolution : MonoBehaviour
         switch (color)
         {
             case Bewegung.FARBEN.blau:
-                arrows.Add(Instantiate(Resources.Load("ArrowBlue"), new Vector3(posx, 376, 0), Quaternion.Euler(0,0,(float) zRot), GameObject.Find("Panel").transform) as GameObject);
+                arrows.Add(Instantiate(Resources.Load("ArrowBlue"), new Vector3(posx, 476, 0), Quaternion.Euler(0,0,(float) zRot), GameObject.Find("Panel").transform) as GameObject);
                 break;
             case Bewegung.FARBEN.gruen:
-                arrows.Add(Instantiate(Resources.Load("ArrowGreen"), new Vector3(posx, 376, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
+                arrows.Add(Instantiate(Resources.Load("ArrowGreen"), new Vector3(posx, 476, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
                 break;
             case Bewegung.FARBEN.rot:
-                arrows.Add(Instantiate(Resources.Load("ArrowRed"), new Vector3(posx, 376, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
+                arrows.Add(Instantiate(Resources.Load("ArrowRed"), new Vector3(posx, 476, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
                 break;
             case Bewegung.FARBEN.gelb:
-                arrows.Add(Instantiate(Resources.Load("ArrowYellow"), new Vector3( posx, 376, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
+                arrows.Add(Instantiate(Resources.Load("ArrowYellow"), new Vector3( posx, 476, 0), Quaternion.Euler(0, 0, (float)zRot), GameObject.Find("Panel").transform) as GameObject);
                 break;
         }
     }

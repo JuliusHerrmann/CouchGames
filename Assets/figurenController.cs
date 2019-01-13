@@ -61,8 +61,10 @@ public class figurenController : MonoBehaviour
         }
     }
 
-    public void bewegungAusfuehren(Bewegung b){
-        Spielstein s = b.getFigur().GetComponent<Spielstein>();
+    public void bewegungAusfuehren(Bewegung b)
+    {
+        GameObject figur = b.getFigur();
+        Spielstein s = figur.GetComponent<Spielstein>();
         s.move(b.getDirection());
     }
 
