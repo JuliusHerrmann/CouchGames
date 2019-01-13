@@ -6,14 +6,22 @@ using System;
 [Serializable]
 public class Player
 {
-    public int points;
+    public int points = 0;
     public Guid UUid;
     public string name;
+    public bool guidVorhanden = false;
     // Start is called before the first frame update
-    public Player(int points, string name){
-        this.points = points;
+    public Player(string name, bool erstelleGuid, Guid id){
+        //this.points = points;
         this.name = name;
-        UUid = Guid.NewGuid();
+        if (erstelleGuid)
+        {
+            UUid = Guid.NewGuid();
+        }
+        else
+        {
+            UUid = id;
+        }
     }
 
     public void addPoints(int points){

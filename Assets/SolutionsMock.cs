@@ -16,24 +16,24 @@ public class SolutionsMock : MonoBehaviour
 
         List<Player> players = refPlayerList.GetComponent<PlayerList>().allePlayer;
         List<Bewegung> bew = new List<Bewegung>(); 
-        bew.Add(new Bewegung("o", 2));
-        bew.Add(new Bewegung("o", 3));
-        bew.Add(new Bewegung("r", 2));
-        bew.Add(new Bewegung("o", 2));
-        bew.Add(new Bewegung("l", 2));
-        bew.Add(new Bewegung("o", 2));
-        bew.Add(new Bewegung("r", 2));
-        bew.Add(new Bewegung("u", 2));
-        bew.Add(new Bewegung("r", 2));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.rot));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.left, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.down, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.left, Bewegung.FARBEN.gelb));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gruen));
+        bew.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
         Solution s1 = new Solution(bew, players[0]);
         referenz.GetComponent<GameController>().solutionSubmitted(s1);
         yield return new WaitForSeconds(3);
         List<Bewegung> bew2 = new List<Bewegung>(); 
-        bew2.Add(new Bewegung("l", 2));
-        bew2.Add(new Bewegung("r", 3));
-        bew2.Add(new Bewegung("u", 2));
-        bew2.Add(new Bewegung("r", 2));
-        bew2.Add(new Bewegung("o", 2));
+        bew2.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.blau));
+        bew2.Add(new Bewegung(Spielstein.MOVEDIRECTION.down, Bewegung.FARBEN.blau));
+        bew2.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
+        bew2.Add(new Bewegung(Spielstein.MOVEDIRECTION.left, Bewegung.FARBEN.gelb));
+        bew2.Add(new Bewegung(Spielstein.MOVEDIRECTION.top, Bewegung.FARBEN.gelb));
         Solution s2 = new Solution(bew2, players[1]);
         referenz.GetComponent<GameController>().solutionSubmitted(s2);
     }
