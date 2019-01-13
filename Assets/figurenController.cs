@@ -5,6 +5,7 @@ using UnityEngine;
 public class figurenController : MonoBehaviour
 {
     public GameObject fRot, fGruen, fBlau, fGelb;
+    public bool solutionInProgress;
     List<Bewegung> alleBewegungen = new List<Bewegung>();
     List<Vector3> startPos;
     bool start = false;
@@ -26,6 +27,7 @@ public class figurenController : MonoBehaviour
 
     public void startMoves(bool lastSolusion){
         start = true;
+        solutionInProgress = true;
         this.lastSolution = lastSolution;
     }
     int step = 0;
@@ -40,6 +42,7 @@ public class figurenController : MonoBehaviour
             }
             else
             {
+                solutionInProgress = false;
                 step = 0;
                 start = false;
                 if (!lastSolution)
