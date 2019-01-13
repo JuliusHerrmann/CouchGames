@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour 
 {
     private const int MAX_SECONDS_TIMER = 60;
 
@@ -182,3 +182,4 @@ public interface ICouchGamesCommand : ISerializable
 {
     CouchGamesCommandType getType();
 }
+
