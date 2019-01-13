@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
         if(gameId != this.id){
             return;
         }
-        Player p = new Player(0, name);
+        Player p = new Player(name, true, Guid.NewGuid());
         p.UUid = playerId;
         playerList.GetComponent<PlayerList>().allePlayer.Add(p);
     }
