@@ -7,6 +7,7 @@ public class Solution
 {
     public List<Bewegung> moves = new List<Bewegung>();
     public Guid playerId;
+    public int secondsLeftWhenSubmitted = 0;
     public Solution(List<Bewegung> moves, Guid playerId){
         this.moves = moves;
         this.playerId = playerId;
