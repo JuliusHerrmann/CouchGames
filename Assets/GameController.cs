@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public List<Solution> solutionsForRound = new List<Solution>();
     public GameObject speicher;
     public GameObject timer, figurenController;
+    public GameObject scoreboardController;
     public int seconds = MAX_SECONDS_TIMER;
     //List<GameObject> allGoals = new List<GameObject>();
     GameObject[] allGoals = new GameObject[16];
