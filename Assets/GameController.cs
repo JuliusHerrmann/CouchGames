@@ -138,6 +138,9 @@ public class GameController : MonoBehaviour
     private void startSolutionSolving()
     {
         solvingSolutions = true;
+        RundenScoreboardController scoreboardController = this.scoreboardController.GetComponent<RundenScoreboardController>();
+        scoreboardController.roundSolutions = solutionsForRound;
+        scoreboardController.initializeScoreLabels();
     }
 
     IEnumerator start()
