@@ -11,12 +11,17 @@ public class GameController : MonoBehaviour
     public GameObject speicher;
     public GameObject timer, figurenController;
     public int seconds = MAX_SECONDS_TIMER;
+    //List<GameObject> allGoals = new List<GameObject>();
+    GameObject[] allGoals = new GameObject[16];
 
     private bool solvingSolutions = false;
     private int solutionNumber = 1;
     public void Start()
     {
-        //speicher = GameObject.Find("PlayerListObject");
+        speicher = GameObject.FindGameObjectWithTag("Speicher");
+        //Zfälliges Goal aussuchen
+        allGoals = GameObject.FindGameObjectsWithTag("Goal");
+
     }
 
     /// <summary>
