@@ -10,20 +10,22 @@ using UnityEngine;
 /// <summary>
 /// Diese Klasse dient dazu die gesendeten Commands vom Sverer abzufangen
 /// </summary>
-public class CommandReceiver : MonoBehaviour
+public class CommandReceiver : MonoBehaviour, IMultiplayerGameObject
 {
     void Start()
     {
         DontDestroyOnLoad(this);
+        Debug.Log("Creating Command reciever");
     }
 
-    public MultiplayerServer server = new MultiplayerServer();
+    public MultiplayerServer server;
     /// <summary>
     /// This function will send a command to the multiplayer component
     /// </summary>
     /// <param name="command"></param>
     public void sendCommand(ICouchGamesCommand command)
     {
+        Console.WriteLine("Command coming");
         switch (command.getCommandType())
         {
             case CouchGamesCommandType.Broadcast:

@@ -13,6 +13,8 @@ public interface IMultiplayerGameObject
 }
 public class MultiplayerServer : MonoBehaviour
 {
+    public CommandReceiver commandReceiver;
+
     protected enum MultiplayerServerBroadcastType
     {
         hostOnly = (Int16)1,
@@ -26,14 +28,30 @@ public class MultiplayerServer : MonoBehaviour
         this.allowedCommands = allowedCommands;
     }
 
+    //void Start()
+    //{
+    //    this.go = commandReceiver;
+    //    this.allowedCommands = new Dictionary<string, Type>();
+    //}
+
     protected WebSocket webSocket;
     IEnumerator Start()
     {
+        this.go = commandReceiver;
+        this.allowedCommands = new Dictionary<string, Type>();
+
+        Debug.Log("Connecting to server");
         // connect to server
         webSocket = new WebSocket(new Uri("ws://localhost:8000"));
         yield return StartCoroutine(webSocket.Connect());
         Debug.Log("CONNECTED TO WEBSOCKETS");
-
+        var x = new PlayerWantsToJoinCommand()
+        {
+            gameId = 4,
+            name = "afsd",
+            playerId = Guid.Empty
+        };
+        this.sendToAll(x);
         // wait for messages
         while (true)
         {
@@ -52,12 +70,15 @@ public class MultiplayerServer : MonoBehaviour
                 break;
             }
 
-
+            yield return 0;
         }
+        // if error, close connection
+        webSocket.Close();
     }
 
     private void recv(string message)
     {
+        Debug.Log(message);
         char[] charSeparators = new char[] { ':' };
         string[] msg = message.Split(charSeparators, 2);
         Type t = this.allowedCommands[msg[0]];
