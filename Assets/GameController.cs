@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
 
     public List<Solution> solutionsForRound = new List<Solution>();
     public GameObject speicher;
-    public GameObject timer, figurenController;
     public GameObject scoreboardController;
+    public GameObject timer, figurenController, mainFigur;
     public int seconds = MAX_SECONDS_TIMER;
     //List<GameObject> allGoals = new List<GameObject>();
     GameObject[] allGoals = new GameObject[16];
@@ -30,6 +30,23 @@ public class GameController : MonoBehaviour
             g.SetActive(false);
         }
         goal.SetActive(true);
+        //Zufälliger Spielstein
+        int farbe = Random.Range(0, 3);
+        switch (farbe)
+        {
+            case 0:
+                mainFigur = figurenController.GetComponent<figurenController>().fRot;
+                break;
+            case 1:
+                mainFigur = figurenController.GetComponent<figurenController>().fGruen;
+                break;
+            case 2:
+                mainFigur = figurenController.GetComponent<figurenController>().fBlau;
+                break;
+            case 3:
+                mainFigur = figurenController.GetComponent<figurenController>().fGelb;
+                break;
+        }
     }
 
     /// <summary>
