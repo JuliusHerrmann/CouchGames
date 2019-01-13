@@ -13,15 +13,22 @@ public class GameController : MonoBehaviour
     public int seconds = MAX_SECONDS_TIMER;
     //List<GameObject> allGoals = new List<GameObject>();
     GameObject[] allGoals = new GameObject[16];
+    GameObject goal;
 
     private bool solvingSolutions = false;
     private int solutionNumber = 1;
     public void Start()
     {
+        Random r = new Random();
         speicher = GameObject.FindGameObjectWithTag("Speicher");
         //Zfälliges Goal aussuchen
         allGoals = GameObject.FindGameObjectsWithTag("Goal");
-
+        goal = allGoals[Random.Range(0, 15)];
+        foreach(GameObject g in allGoals)
+        {
+            g.SetActive(false);
+        }
+        goal.SetActive(true);
     }
 
     /// <summary>
