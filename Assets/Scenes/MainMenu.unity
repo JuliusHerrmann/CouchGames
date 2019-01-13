@@ -167,7 +167,6 @@ GameObject:
   - component: {fileID: 112066254}
   - component: {fileID: 112066253}
   - component: {fileID: 112066252}
-  - component: {fileID: 112066255}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -239,25 +238,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &112066255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112066251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e75bcbfa95e7d4495085152b5f14df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerList: {fileID: 370275690}
 --- !u!1 &370275690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1744650789487630845, guid: 532dbc8870d8f7f43bed39b7ed20ff4b,
     type: 3}
   m_PrefabInstance: {fileID: 1744650789723450519}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &502806217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502806219}
+  - component: {fileID: 502806218}
+  m_Layer: 0
+  m_Name: MainMenu
+  m_TagString: MainMenu
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &502806218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502806217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e75bcbfa95e7d4495085152b5f14df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerList: {fileID: 370275690}
+--- !u!4 &502806219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502806217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2218475, y: 1.3572291, z: -0.0996515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1744650789723450519
 PrefabInstance:
   m_ObjectHideFlags: 0

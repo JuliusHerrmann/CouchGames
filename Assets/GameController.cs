@@ -114,37 +114,6 @@ public class GameController : MonoBehaviour
         
     }
 
-    public MultiplayerServer server = new MultiplayerServer();
-    /// <summary>
-    /// This function will send a command to the multiplayer component
-    /// </summary>
-    /// <param name="command"></param>
-    public void sendCommand(ICouchGamesCommand command)
-    {
-        switch (command.getType())
-        {
-            case CouchGamesCommandType.Broadcast:
-                server.sendToAll(command);
-                break;
-            case CouchGamesCommandType.ForHost:
-                server.sendToHost(command);
-                break;
-            default:
-                throw new InvalidEnumArgumentException();
-        }
-    }
-    /// <summary>
-    /// This function will be called by the Multiplayer component if a new command is recieved
-    /// </summary>
-    /// <param name="command"></param>
-    public void recvCommand(ICouchGamesCommand command)
-    {
-        //TODO 
-        switch(command.GetType()){
-
-        }
-    }
-
     public void startTimer()
     {
         StartCoroutine(start());
@@ -153,6 +122,9 @@ public class GameController : MonoBehaviour
     private void startSolutionSolving()
     {
         solvingSolutions = true;
+        RundenScoreboardController scoreboardController = this.scoreboardController.GetComponent<RundenScoreboardController>();
+        scoreboardController.roundSolutions = solutionsForRound;
+        scoreboardController.initializeScoreLabels();
     }
 
     IEnumerator start()
@@ -176,10 +148,3 @@ public class GameController : MonoBehaviour
         //TODO
     }
 }
-
-public enum CouchGamesCommandType { ForHost, Broadcast}
-public interface ICouchGamesCommand : ISerializable
-{
-    CouchGamesCommandType getType();
-}
-
