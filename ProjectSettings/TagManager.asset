@@ -8,6 +8,7 @@ TagManager:
   - goal
   - Speicher
   - Goal
+  - MainMenu
   layers:
   - Default
   - TransparentFX

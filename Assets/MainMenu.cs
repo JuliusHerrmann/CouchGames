@@ -17,15 +17,14 @@ public class MainMenu : MonoBehaviour
         id = 123456;
     }
 
-    public Guid playerJoined(string name, int id){
+    public void playerJoined(string name, int gameId, Guid playerId){
         //Überprüfen ob der Spiler dem korrekten Spiel beitreten möchte
-        if(id != this.id){
-            return new Guid("00000000-0000-0000-0000-000000000000");
+        if(gameId != this.id){
+            return;
         }
-        Player p = new Player(name, true, new Guid());
-        //allPlayer.Add(p);
+        Player p = new Player(0, name);
+        p.UUid = playerId;
         playerList.GetComponent<PlayerList>().allePlayer.Add(p);
-        return p.UUid;
     }
 
     public void playerWantsToStart(Guid id){
