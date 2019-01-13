@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public List<Solution> solutionsForRound = new List<Solution>();
     public GameObject speicher;
+    public GameObject timer, figurenController;
+    public int seconds = 60;
 
     public void Start(){
         //speicher = GameObject.Find("PlayerListObject");
@@ -17,15 +20,10 @@ public class GameController : MonoBehaviour
         }
         solutionsForRound.Add(s);
         if(solutionsForRound.Count == speicher.GetComponent<PlayerList>().allePlayer.Count){
-            timer.GetComponent<PlayerController>().seconds = 1;
+            seconds = 1;
         }
     }
-    public GameObject timer, figurenController;
-    // Start is called before the first frame update
-    void startTimer()
-    {
-        timer.GetComponent<PlayerController>().startTimer();
-    }
+    
 
     public void startNewRound(){
         //Send Id um zu starten
@@ -34,9 +32,23 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer.GetComponent<PlayerController>().timeUp){
-            figurenController.GetComponent<figurenController>().startMoves();
-            timer.GetComponent<PlayerController>().timeUp = false;
+    }
+
+    public void startTimer()
+    {
+        StartCoroutine(start());
+    }
+
+    
+    IEnumerator start()
+    {
+        while (seconds > 0)
+        {
+            timer.GetComponent<TextMeshProUGUI>().text = seconds.ToString();
+            seconds--;
+            yield return new WaitForSeconds(1);
         }
+        // Lösungsvorgang starten wenn der Timer abgelaufen ist.
+        figurenController.GetComponent<figurenController>().startMoves();
     }
 }

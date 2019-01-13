@@ -3233,14 +3233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allePlayer: []
-  timer: {fileID: 908236410}
   playerSigns:
   - {fileID: 1359961084}
   - {fileID: 1178479817}
   - {fileID: 1385873432}
   - {fileID: 1605144562}
-  timeUp: 0
-  seconds: 60
 --- !u!4 &125980812
 Transform:
   m_ObjectHideFlags: 0
@@ -9145,8 +9142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speicher: {fileID: 313588692}
-  timer: {fileID: 125980810}
+  timer: {fileID: 908236410}
   figurenController: {fileID: 338750667}
+  seconds: 60
 --- !u!4 &519796575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9061785593146122563, guid: 26ad7b0de63136744aebcde10b427c24,
