@@ -7,7 +7,7 @@ public class figurenController : MonoBehaviour
     public GameObject fRot, fGruen, fBlau, fGelb;
     public bool solutionInProgress;
     List<Bewegung> alleBewegungen = new List<Bewegung>();
-    List<Vector3> startPos;
+    List<Vector3> startPos = new List<Vector3>();
     bool start = false;
     bool lastSolution = false;
     GameObject speicher;
@@ -25,10 +25,10 @@ public class figurenController : MonoBehaviour
         alleBewegungen = solution.moves;
     }
 
-    public void startMoves(bool lastSolusion){
+    public void startMoves(bool isLastSolution){
         start = true;
         solutionInProgress = true;
-        this.lastSolution = lastSolution;
+        this.lastSolution = isLastSolution;
     }
     int step = 0;
     void Update(){

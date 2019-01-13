@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
         //Send Id um zu starten
         //playerList.GetComponent<PlayerList>().gameId;
         seconds = MAX_SECONDS_TIMER;
+        timer.GetComponent<TextMeshProUGUI>().text = seconds.ToString();
     }
 
     // Update is called once per frame
