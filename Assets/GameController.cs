@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     public GameObject timer, figurenController;
     public int seconds = MAX_SECONDS_TIMER;
 
+    private bool solvingSolutions = false;
+    private int solutionNumber = 1;
     public void Start()
     {
         //speicher = GameObject.Find("PlayerListObject");
@@ -43,6 +45,34 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (solvingSolutions)
+        {
+            figurenController figController = figurenController.GetComponent<figurenController>();
+            if (!figController.solutionInProgress && solutionNumber <= solutionsForRound.Count)
+            {
+                Solution solution = solutionsForRound[solutionNumber - 1];
+                bool isLastSolutionOfRound = solutionNumber == solutionsForRound.Count;
+                solutionNumber++;
+                figController.setSolution(solution);
+                figController.startMoves(isLastSolutionOfRound);
+            }
+            // überprüfen, ob die letzte solution der Runde fertig durchlaufen wurde
+            else if (!figController.solutionInProgress && solutionNumber > solutionsForRound.Count)
+            {
+                solvingSolutions = false;
+
+                // Solutions bewerten und sortieren
+                evaluateSolutions();
+
+                // punkte der runde zu den einzelnen Spielern hinzufügen
+                //TODO
+
+                // nächste Runde starten
+                startNewRound();
+            }
+            
+        }
+        
     }
 
     public void startTimer()
@@ -52,37 +82,7 @@ public class GameController : MonoBehaviour
 
     private void startSolutionSolving()
     {
-        // alle solutions durchlaufen
-        runAllSolutions();
-        
-        // Solutions bewerten und sortieren
-        evaluateSolutions();
-
-        // punkte der runde zu den einzelnen Spielern hinzufügen
-        //TODO
-
-        // nächste Runde starten
-        startNewRound();
-    }
-
-    /// <summary>
-    /// Lässt im figurenController nacheinander alle solutions durchlaufen
-    /// </summary>
-    private void runAllSolutions()
-    {
-        figurenController figController = figurenController.GetComponent<figurenController>();
-        int solutionNumber = 1;
-        foreach (Solution solution in solutionsForRound)
-        {
-            bool isLastSolutionOfRound = solutionNumber == solutionsForRound.Count;
-            figController.setSolution(solution);
-            figController.startMoves(isLastSolutionOfRound);
-
-            while (figController.solutionInProgress)
-            {
-                // warten bis die solution fertig durchlaufen wurde
-            }
-        }
+        solvingSolutions = true;
     }
 
     IEnumerator start()
