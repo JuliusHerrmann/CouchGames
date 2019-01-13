@@ -25,10 +25,15 @@ public class GameController : MonoBehaviour
     /// <param name="solution"></param>
     public void solutionSubmitted(Solution solution)
     {
+        // timer starten wenn dies die erste Solution in dr Runde ist
         if(solutionsForRound.Count == 0){
             startTimer();
         }
+
+        solution.secondsLeftWhenSubmitted = seconds;
         solutionsForRound.Add(solution);
+
+        // Timer auf 1 setzen wenn alle Spieler eine Solution submitted haben
         if(solutionsForRound.Count == speicher.GetComponent<PlayerList>().allePlayer.Count){
             seconds = 1;
         }
